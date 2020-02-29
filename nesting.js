@@ -51,6 +51,26 @@ var employees = [
 */
 
 //Code Here
+// function employeeUpdater(employees){
+// let newEmployees = employees.map(function(element, index, array){
+//   if (employees.firstName === 'Theo') {
+//     delete employees[index];
+//   } if (employees.firstName === 'Lorie') {
+//     return employees.department = 'HR';
+//   }
+//   return newEmployees;
+// })
+// }
+function employeeUpdater(){
+  for (let i = 0; i < employees.length; i++){
+    if (employees[i].firstName === "Theo"){
+       employees.splice(i, 1);
+    } else if (employees[i].firstName === "Lorie"){
+     employees[i]["department"] = "HR"; 
+    }
+  }
+  return employees;
+}
 
 
 
@@ -69,7 +89,23 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
+function removeDuplicates(){
+  for (i = workplaceAccidents.length - 1; i >= 0; i--){
+    for (j = workplaceAccidents.length - 1; j >= 0; j--) {
+      const currentAccident = workplaceAccidents[i];
+      const comparatorAccident = workplaceAccidents[j];
 
+      if (currentAccident === comparatorAccident  && i != j){
+      
+      workplaceAccidents.splice(i, 1);
+     console.log( workplaceAccidents );
+    } 
+  }
+  }  
+
+  console.log( workplaceAccidents ); 
+  return workplaceAccidents;
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -97,8 +133,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -139,7 +175,14 @@ var myCar = {
 */
 
 //Code Here
+function recordCleaner(){
+  for (i = 0; i < myCar.accidents.length; i++){
 
+    if (myCar.accidents[i].atFaultForAccident === true){
+       myCar.accidents[i].atFaultForAccident = false;
+    }
+  }
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -158,5 +201,28 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
+// function looper(arr){
+//   for (let i = 0; i < arr.length; i++){
+//     if (numsArr[i] % 2 === 0){
+//       return "even";
+//     }
+//     if (numsArr[i] % 2 !== 0){
+//       return "odd";
+//     }
+//   } return arr;
+// } 
+// looper(numsArr);
 
 
+function looper() {
+  for (i = 0; i < numsArr.length; i++){
+    for (j = 0; j < numsArr[i].length; j++){
+      if (numsArr[i][j] % 2 === 0){
+        numsArr[i][j] = 'even';
+      } else {
+        numsArr[i][j] = 'odd';
+      }
+    }
+  }
+ return numsArr; 
+}
